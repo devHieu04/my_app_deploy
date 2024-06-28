@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  host: <%= ENV['DATABASE_HOST'] %>
+  port: 5432
+
+development:
+  <<: *default
+  database: deploy_development
+
+test:
+  <<: *default
+  database: deploy_test
+
+production:
+  <<: *default
+  database: deploy_production
+
